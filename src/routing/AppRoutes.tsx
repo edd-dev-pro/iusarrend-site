@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { Home, PlansPrices, TermsConditions, Contact } from "../pages";
+import { Routes, Route } from 'react-router-dom'
+import { Home, PlansPrices, TermsConditions, Contact } from '../pages'
 
 const AppRoutes = () => {
   return (
@@ -9,7 +9,7 @@ const AppRoutes = () => {
       <Route path="/" element={<TermsConditions />} />
       <Route path="/" element={<Contact />} />
     </Routes>
-  );
-};
+  )
+}
 
-export default AppRoutes;
+export default AppRoutes

@@ -1,9 +1,9 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from 'react'
 
-import Header from "../core/header/Header";
+import Header from '../core/header/Header'
 
 interface DefaultLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
@@ -16,7 +16,7 @@ const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
         <main>{children}</main>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DefaultLayout;
+export default DefaultLayout

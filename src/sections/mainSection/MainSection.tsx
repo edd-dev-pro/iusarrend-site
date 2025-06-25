@@ -1,5 +1,5 @@
 const MainSection = () => {
-  return <div>MainSection</div>;
-};
+  return <div>MainSection</div>
+}
 
-export default MainSection;
+export default MainSection
