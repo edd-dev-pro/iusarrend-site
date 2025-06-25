@@ -1,36 +1,100 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-base: 'polymath', sans-serif;
+  --font-heading: 'polymath-display', sans-serif;
+  --font-body: 'polymath-text', sans-serif;
 
-  color-scheme: light dark;
-  color: #000;
-  background-color: #dfdfdf;
+  --color-primary: #22304a;
+  --color-secondary: #f0c985;
+  --color-accent: #987146;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #000000;
+  --color-background: #dfdfdf;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  --line-height-base: 1.5;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+/* RESET Y BASE VISUAL */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
+/* ENLACES */
+
+a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.layout-wrapper {
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
+a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
 }
 
-.background-image {
-  position: absolute;
-  inset: 0;
-  background: url("/assets/bg.jpg") no-repeat center center / cover;
-  z-index: 0;
-  opacity: 0.2; /* ajusta según diseño */
-  pointer-events: none;
+/* TIPOGRAFÍA GENERAL */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* BOTONES BOOTSTRAP */
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* NAVBAR BOOTSTRAP */
+
+.navbar {
+  /* background-color: var(--color-white); */
+  color: var(--color-white);
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+}
+
+.nav-link:hover,
+.navbar-brand:hover {
+  color: var(--color-accent);
 }
