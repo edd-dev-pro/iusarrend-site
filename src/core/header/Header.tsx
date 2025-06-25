@@ -1,5 +1,5 @@
-import NavLink from "../navLink/NavLink";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import NavLink from '../navLink/NavLink'
+import { Container, Navbar, Nav } from 'react-bootstrap'
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const Header = () => {
         </Navbar>
       </Container>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
