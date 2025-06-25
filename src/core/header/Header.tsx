@@ -1,22 +1,56 @@
-import NavLink from '../navLink/NavLink'
-import { Container, Navbar, Nav } from 'react-bootstrap'
+import type { FC } from 'react'
+import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Link, useLocation } from 'react-router-dom'
+import NavLinkItem from './components/NavLinkItem'
 
-const Header = () => {
+import styles from './styles/header.module.css'
+
+const Header: FC = () => {
+  const location = useLocation()
+
   return (
-    <header className="py-3">
-      <Container>
-        <Navbar expand="lg" className="justify-content-between">
-          <Navbar.Brand href="/">IUSARREND</Navbar.Brand>
-          <Nav>
-            <NavLink to="/">Inicio</NavLink>
-            <NavLink to="/services">Servicios</NavLink>
-            <NavLink to="/blog">Blog</NavLink>
-            <NavLink to="/lawyers">Abogados</NavLink>
-            <NavLink to="/cases">Casos</NavLink>
-            <NavLink to="/contact">Contacto</NavLink>
+    <header className={styles.headerWrapper}>
+      <Navbar expand="lg" className={styles.navbar}>
+        <Container fluid className={styles.container}>
+          <Nav className={styles.leftNav}>
+            <NavLinkItem
+              to="/"
+              label="Inicio"
+              icon="bi-house-door"
+              currentPath={location.pathname}
+            />
+            <NavLinkItem
+              to="/servicios"
+              label="Servicios"
+              icon="bi-tools"
+              currentPath={location.pathname}
+            />
           </Nav>
-        </Navbar>
-      </Container>
+
+          <div className={styles.logoWrapper}>
+            <Link to="/" className={styles.logo}>
+              {/* TODO EMC [06/25/2025]: Add logo */}
+              {/* <img src="/logo.svg" alt="IUSARREND" /> */}
+              IUSARREND
+            </Link>
+          </div>
+
+          <Nav className={styles.rightNav}>
+            <NavLinkItem
+              to="/nosotros"
+              label="Nosotros"
+              icon="bi-people"
+              currentPath={location.pathname}
+            />
+            <NavLinkItem
+              to="/contacto"
+              label="Contacto"
+              icon="bi-envelope"
+              currentPath={location.pathname}
+            />
+          </Nav>
+        </Container>
+      </Navbar>
     </header>
   )
 }
