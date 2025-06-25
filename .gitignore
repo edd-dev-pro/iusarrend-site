@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Config / herramientas
+.husky/
+.prettierignore
+.eslintcache
