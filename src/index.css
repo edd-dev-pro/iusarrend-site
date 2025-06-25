@@ -19,3 +19,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.layout-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  background: url("/assets/bg.jpg") no-repeat center center / cover;
+  z-index: 0;
+  opacity: 0.2; /* ajusta según diseño */
+  pointer-events: none;
+}

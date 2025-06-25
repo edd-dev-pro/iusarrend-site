@@ -8,10 +8,11 @@ interface DefaultLayoutProps {
 
 const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
   return (
-    <div className="container">
-      <Header />
+    <div className="layout-wrapper">
+      <div className="bg-img" />
 
-      <div>
+      <div className="container position-relative z-1">
+        <Header />
         <main>{children}</main>
       </div>
     </div>
