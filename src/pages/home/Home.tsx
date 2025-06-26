@@ -1,10 +1,22 @@
 import DefaultLayout from '../../layouts/DefaultLayout'
-import { MainSection } from '../../sections'
+import {
+  MainSection,
+  MissionVision,
+  Policy,
+  Quote,
+  Values,
+  WhoAreWe,
+} from '../../sections'
 
 const Home = () => {
   return (
     <DefaultLayout>
       <MainSection />
+      <MissionVision />
+      <Policy />
+      <Quote />
+      <Values />
+      <WhoAreWe />
     </DefaultLayout>
   )
 }

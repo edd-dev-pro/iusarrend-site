@@ -1,1 +1,7 @@
 export { default as MainSection } from './mainSection/MainSection'
+export { default as MissionVision } from './missionVision/MissionVision'
+export { default as Policy } from './policy/Policy'
+export { default as Quote } from './quote/Quote'
+export { default as Values } from './values/Values'
+export { default as WhoAreWe } from './whoAreWe/WhoAreWe'
+export { default as PlansPricesSection } from './plansPricesSection/PlansPricesSection'
