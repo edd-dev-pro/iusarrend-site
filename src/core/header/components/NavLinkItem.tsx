@@ -7,7 +7,7 @@ import styles from '../styles/header.module.css'
 interface NavLinkItemProps {
   to: string
   label: string
-  icon: string
+  icon?: string
   currentPath: string
 }
 
@@ -24,7 +24,7 @@ const NavLinkItem: FC<NavLinkItemProps> = ({
       to={to}
       className={clsx(styles.navLink, { [styles.active]: isActive })}
     >
-      <i className={`bi ${icon} ${styles.icon}`} aria-hidden="true" />
+      {icon && <i className={`bi ${icon} ${styles.icon}`} aria-hidden="true" />}
       <span>{label}</span>
     </NavLink>
   )
