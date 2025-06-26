@@ -1,0 +1,15 @@
+.title {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  letter-spacing: 0.4rem;
+}
+
+.subTitle {
+  letter-spacing: 0.12rem;
+}
+
+.btnMain {
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  border-color: var(--color-accent) !important;
+}
