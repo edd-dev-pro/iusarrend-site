@@ -8,3 +8,5 @@ export { default as PlansPricesSection } from './plansPricesSection/PlansPricesS
 export { default as Benefits } from './benefits/Benefits'
 export { default as Prices } from './prices/Prices'
 export { default as Requirements } from './requirements/Requirements'
+export { default as TermsConditionsSection } from './termsConditionsSection/TermsConditionsSection'
+export { default as PrivacyNotice } from './privacyNotice/PrivacyNotice'
