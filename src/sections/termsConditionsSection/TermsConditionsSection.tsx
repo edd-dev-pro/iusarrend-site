@@ -1,5 +1,11 @@
+import PrivacyNotice from './components/privacyNotice/PrivacyNotice'
+
 const TermsConditionsSection = () => {
-  return <div>TermsConditionsSection</div>
+  return (
+    <div>
+      <PrivacyNotice />
+    </div>
+  )
 }
 
 export default TermsConditionsSection

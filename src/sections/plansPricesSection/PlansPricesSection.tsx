@@ -1,5 +1,13 @@
+import { Benefits, Prices, Requirements } from './components'
+
 const PlansPricesSection = () => {
-  return <div>PlansPricesSection</div>
+  return (
+    <div>
+      <Benefits />
+      <Prices />
+      <Requirements />
+    </div>
+  )
 }
 
 export default PlansPricesSection

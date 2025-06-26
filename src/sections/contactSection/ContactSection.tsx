@@ -1,5 +1,13 @@
+import { Address, Reviews, SocialMedia } from './components'
+
 const ContactSection = () => {
-  return <div>ContactSection</div>
+  return (
+    <div>
+      <Address />
+      <Reviews />
+      <SocialMedia />
+    </div>
+  )
 }
 
 export default ContactSection

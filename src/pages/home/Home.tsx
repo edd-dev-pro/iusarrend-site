@@ -1,22 +1,18 @@
 import DefaultLayout from '../../layouts/DefaultLayout'
 import {
+  ContactSection,
   MainSection,
-  MissionVision,
-  Policy,
-  Quote,
-  Values,
-  WhoAreWe,
+  PlansPricesSection,
+  TermsConditionsSection,
 } from '../../sections'
 
 const Home = () => {
   return (
     <DefaultLayout>
       <MainSection />
-      <MissionVision />
-      <Policy />
-      <Quote />
-      <Values />
-      <WhoAreWe />
+      <PlansPricesSection />
+      <TermsConditionsSection />
+      <ContactSection />
     </DefaultLayout>
   )
 }

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import styles from './styles/mainSection.module.css'
+import { MissionVision, Policy, Quote, Values, WhoAreWe } from './components'
 
 const MainSection = () => {
   return (
@@ -17,6 +18,13 @@ const MainSection = () => {
       >
         Agendar
       </button>
+      <div>
+        <WhoAreWe />
+        <Policy />
+        <Quote />
+        <MissionVision />
+        <Values />
+      </div>
     </div>
   )
 }
