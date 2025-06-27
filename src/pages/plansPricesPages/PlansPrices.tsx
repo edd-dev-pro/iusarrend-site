@@ -1,5 +1,5 @@
 const PlansPrices = () => {
-  return <div>plansPrices</div>
+  return <div>PlansPrices</div>
 }
 
 export default PlansPrices
