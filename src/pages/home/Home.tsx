@@ -1,12 +1,20 @@
-import DefaultLayout from "../../layouts/DefaultLayout";
-import { MainSection } from "../../sections";
+import DefaultLayout from '../../layouts/DefaultLayout'
+import {
+  ContactSection,
+  MainSection,
+  PlansPricesSection,
+  TermsConditionsSection,
+} from '../../sections'
 
 const Home = () => {
   return (
     <DefaultLayout>
       <MainSection />
+      <PlansPricesSection />
+      <TermsConditionsSection />
+      <ContactSection />
     </DefaultLayout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

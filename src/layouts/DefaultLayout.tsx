@@ -1,21 +1,23 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from 'react'
 
-import Header from "../core/header/Header";
+import Header from '../core/header/Header'
+import { BackgroundVisual } from '../components'
 
 interface DefaultLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
   return (
-    <div className="container">
-      <Header />
+    <div className="layout-wrapper">
+      <BackgroundVisual />
 
-      <div>
+      <div className="container position-relative z-1">
+        <Header />
         <main>{children}</main>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DefaultLayout;
+export default DefaultLayout
