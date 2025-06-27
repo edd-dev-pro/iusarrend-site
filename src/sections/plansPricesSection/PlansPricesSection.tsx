@@ -2,11 +2,12 @@ import { Benefits, Prices, Requirements } from './components'
 
 const PlansPricesSection = () => {
   return (
-    <div>
+    <section>
+      <h3>Planes y precios</h3>
       <Benefits />
       <Prices />
       <Requirements />
-    </div>
+    </section>
   )
 }
 

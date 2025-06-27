@@ -1,5 +1,9 @@
 const Prices = () => {
-  return <div>Prices</div>
+  return (
+    <div className="limit">
+      <h1>Precios</h1>
+    </div>
+  )
 }
 
 export default Prices
