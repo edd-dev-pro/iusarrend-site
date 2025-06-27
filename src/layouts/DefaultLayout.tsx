@@ -14,12 +14,7 @@ const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
 
       <div className="container position-relative z-1">
         <Header />
-        <main
-          className="d-flex justify-content-center align-items-center"
-          style={{ height: 'calc(100vh - 104px)' }}
-        >
-          {children}
-        </main>
+        <main>{children}</main>
       </div>
     </div>
   )
