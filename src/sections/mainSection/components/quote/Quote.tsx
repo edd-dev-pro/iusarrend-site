@@ -1,5 +1,9 @@
 const Quote = () => {
-  return <div>Quote</div>
+  return (
+    <div className="limit">
+      <h1>Cotizador</h1>
+    </div>
+  )
 }
 
 export default Quote
