@@ -3,9 +3,10 @@ import { Address, Reviews, SocialMedia } from './components'
 const ContactSection = () => {
   return (
     <div>
+      <h3>Contacto</h3>
       <Address />
-      <Reviews />
       <SocialMedia />
+      <Reviews />
     </div>
   )
 }
