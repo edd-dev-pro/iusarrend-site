@@ -1,4 +1,5 @@
 import type { FC, ReactNode } from 'react'
+import { Container } from 'react-bootstrap'
 
 import Header from '../core/header/Header'
 import { BackgroundVisual } from '../components'
@@ -12,10 +13,10 @@ const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
     <div className="layout-wrapper">
       <BackgroundVisual />
 
-      <div className="container position-relative z-1">
-        <Header />
+      <Header />
+      <Container>
         <main>{children}</main>
-      </div>
+      </Container>
     </div>
   )
 }
