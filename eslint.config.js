@@ -13,7 +13,10 @@ export default [
   {
     ignores: ['**/node_modules/**', '**/dist/**'],
   },
-  js.configs.recommended,
+  {
+    files: ['**/*.{js,jsx}'],
+    ...js.configs.recommended,
+  },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
