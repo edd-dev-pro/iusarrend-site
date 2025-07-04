@@ -3,7 +3,7 @@ import Banner from './components/banner/Banner'
 
 const MainSection = () => {
   return (
-    <section className="position-relative">
+    <section>
       <Banner />
       <WhoAreWe />
       <Policy />
