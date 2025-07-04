@@ -1,54 +1,49 @@
-/* --color-primary: #22304a;
-  --color-secondary: #f0c985;
-  --color-accent: #987146;
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-text: #000000;
-  --color-background: #dfdfdf; */
-
 .wrapper {
-  z-index: 1000;
+  width: 100%;
   background-color: var(--color-primary);
   color: var(--color-white);
   top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  box-shadow: 5px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 5px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 5px 0px 4px 0px rgba(0, 0, 0, 0.5);
+  left: 50%;
+  transform: translate(-50%, 0px);
+  z-index: 1000;
+}
 
-  /* Desktop View */
-  /* top: 0px; */
-  /* left: 50%; */
-  /* transform: translate(-50%, 0px); */
+.wrapperMenu {
+  position: absolute;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: var(--color-primary);
+  transform: translateX(-100%);
+  /* transition: transform 0.35s ease; */
+  transition: transform 0.5s ease;
+}
+
+.open {
+  transform: translateX(0); /* ↔️ se desliza desde la izquierda */
 }
 
 .logo {
   height: 2rem;
 }
 
-/* a partir de 768 px → 50 % */
-@media (min-width: 768px) {
-  .wrapper {
-    width: 50%;
+@media (min-width: 992px) {
+  .logo {
+    height: 1.5rem;
+  }
+  .wrapperMenu {
+    position: static;
+    height: auto;
   }
 }
 
-/* a partir de 992 px → 33 % opcional */
-@media (min-width: 992px) {
-  .wrapper {
-    width: 100%;
-    height: auto;
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%, 0px);
-    background-color: transparent;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
+@media (orientation: portrait) {
+  .btnHeader {
+    margin: 2rem;
   }
-  .logo {
-    height: 1.5rem;
+}
+
+@media (orientation: landscape) {
+  .btnHeader {
+    margin: 1rem 3rem;
   }
 }
