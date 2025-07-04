@@ -1,9 +1,6 @@
 .iconContainer {
   display: flex;
   gap: 1.5rem;
-  position: absolute;
-  top: 45%;
-  left: 0px;
   justify-content: center;
   align-items: center;
 }
