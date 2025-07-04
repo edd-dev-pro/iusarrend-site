@@ -1,7 +1,9 @@
 .root {
-  /* display: flex;
+  height: 100vh;
+  display: flex;
   flex-direction: column;
-  width: 100%; */
+  justify-content: space-around;
+  padding: 2rem 3.5rem 2rem 3.5rem; /* top, left, right, bottom */
   gap: 1.5rem;
 }
 .header {
@@ -9,12 +11,48 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .burger {
-  width: 32px;
-  height: 32px;
-  background: url('/burger.svg') no-repeat center/contain;
-  border: none;
+  /* Reset botón */
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  /* Tamaño del área clicable */
+  width: 34px;
+  height: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Accesibilidad visual teclado */
+  outline-offset: 4px;
 }
+
+/* Barras internas */
+.burger span {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--color-white);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Estado abierto: animar a “X” */
+.burgerOpen span:nth-child(1) {
+  transform: translateY(12px) rotate(45deg);
+}
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+.burgerOpen span:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
 .main {
   list-style: none;
   margin: 0;
@@ -24,11 +62,23 @@
   gap: 1rem;
 }
 .footer {
-  margin-top: auto;
+  border-top: 5px solid var(--color-accent);
+}
+
+@media (orientation: landscape) {
+  .root {
+    padding: 1.5rem 1rem 1.5rem 1rem; /* top, left, right, bottom */
+  }
+
+  .btnHeader {
+    margin: 0.5rem;
+  }
 }
 
 @media (min-width: 992px) {
   .root {
+    height: auto;
+    padding: 0px;
     flex-direction: row;
     align-items: center;
     gap: 3rem;

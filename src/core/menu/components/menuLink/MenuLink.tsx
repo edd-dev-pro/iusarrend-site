@@ -1,7 +1,6 @@
+import clsx from 'clsx'
 import { NavLink, type NavLinkProps } from 'react-router-dom'
-// import clsx from 'clsx'
-// import styles from '../header.module.css'
-// import styles from '../../../header/styles/header.module.css'
+import styles from './styles/menuLink.module.css'
 
 interface Props extends Pick<NavLinkProps, 'to' | 'end' | 'onClick'> {
   label: string
@@ -9,12 +8,12 @@ interface Props extends Pick<NavLinkProps, 'to' | 'end' | 'onClick'> {
 
 const MenuLink = ({ to, label, end, onClick }: Props) => {
   return (
-    <li className="text-center p-3 p-sm-2">
+    <li>
       <NavLink
         to={to}
         end={end}
         onClick={onClick}
-        className="mb-2 border-3 text-decoration-none"
+        className={clsx('mb-2 border-3 text-decoration-none', styles.navLink)}
         // className={({ isActive }) =>
         //   clsx(styles.link, isActive && styles.linkActive)
         // }

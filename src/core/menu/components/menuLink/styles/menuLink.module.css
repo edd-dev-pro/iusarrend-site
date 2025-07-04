@@ -1,0 +1,61 @@
+/* TODO EMC [07/03/2025]: Pending deletion  */
+/*
+  --font-base: 'polymath', sans-serif;
+  --font-heading: 'polymath-display', sans-serif;
+  --font-body: 'polymath-text', sans-serif;
+
+  --color-primary: #22304a;
+  --color-secondary: #f0c985;
+  --color-accent: #987146;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #000000;
+  --color-background: #dfdfdf;
+  
+  --bp-sm: 576px;
+  --bp-md: 768px;
+  --bp-lg: 992px;
+*/
+
+li {
+  text-align: center;
+  padding: 1.2rem;
+}
+
+.navLink {
+  font-size: 2rem;
+  /* font-family: var(--font-base); */
+  font-family: var(--font-heading);
+  letter-spacing: 0.3rem;
+}
+
+@media (orientation: landscape) {
+  li {
+    text-align: left;
+    padding: 0.3rem;
+  }
+  .navLink {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .navLink {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .navLink {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navLink {
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+  }
+}

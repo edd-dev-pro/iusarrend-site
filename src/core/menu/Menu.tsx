@@ -1,48 +1,14 @@
-import {
-  type ReactNode,
-  type FC,
-  createContext,
-  useContext,
-  useState,
-  useMemo,
-} from 'react'
+import type { ReactNode, FC } from 'react'
 import clsx from 'clsx'
 import styles from './styles/menu.module.css'
-
-interface MenuContextValue {
-  open: boolean
-  toggle: VoidFunction
-}
-
-const MenuCtx = createContext<MenuContextValue | undefined>(undefined)
-const useMenuCtx = () => {
-  const ctx = useContext(MenuCtx)
-  if (!ctx) throw new Error('Menu.* must be used inside <Menu>')
-  return ctx
-}
+import { useMenuCtx } from '../hooks'
 
 interface MenuProps {
   children: ReactNode
 }
 
 const MenuRoot: FC<MenuProps> = ({ children }) => {
-  const [open, setOpen] = useState(false)
-  const toggle = () => setOpen((value) => !value)
-  const ctxObj = useMemo(() => ({ open, toggle }), [open])
-
-  return (
-    <MenuCtx.Provider value={ctxObj}>
-      <nav
-        className={clsx(
-          'd-flex flex-column w-100',
-          styles.root,
-          open && styles.open,
-        )}
-      >
-        {children}
-      </nav>
-    </MenuCtx.Provider>
-  )
+  return <nav className={styles.root}>{children}</nav>
 }
 
 const Header = ({
@@ -56,26 +22,34 @@ const Header = ({
   return (
     <div className={clsx(styles.header, className)}>
       {children}
-      <button className={styles.burger} onClick={toggle} aria-label="toggle" />
+      <button
+        aria-label="toggle menu"
+        onClick={toggle}
+        className={clsx(styles.burger, styles.burgerOpen)}
+      >
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+      </button>
     </div>
   )
 }
 
 const Main = ({ children }: { children: ReactNode }) => (
-  <ul className={clsx('mt-5 mt-sm-3', styles.main)}>{children}</ul>
+  <ul className={clsx('ms-md-4', styles.main)}>{children}</ul>
 )
 
 const Footer = ({ children }: { children: ReactNode }) => (
-  <div className={clsx('d-lg-none', styles.footer)}>{children}</div>
+  <div className={clsx('pt-4 d-lg-none', styles.footer)}>{children}</div>
 )
 
-type MenuCompound = FC<MenuProps> & {
+type Compound = FC<MenuProps> & {
   Header: typeof Header
   Main: typeof Main
   Footer: typeof Footer
 }
 
-const Menu = MenuRoot as MenuCompound
+const Menu = MenuRoot as Compound
 Menu.Header = Header
 Menu.Main = Main
 Menu.Footer = Footer
