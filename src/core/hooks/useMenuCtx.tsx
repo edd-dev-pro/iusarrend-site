@@ -22,7 +22,7 @@ const useMenuCtx = (): MenuCtxValue => {
 }
 
 const MenuProvider = ({ children }: { children: ReactNode }) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const toggle = useCallback(() => setOpen((o) => !o), [])
   const close = useCallback(() => setOpen(false), [])
