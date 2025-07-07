@@ -1,0 +1,21 @@
+.iconContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.iconLink {
+  font-size: 1.4rem;
+  color: var(--color-white); /* Usa variable Bootstrap o cambia por tu color */
+  transition: transform 0.2s ease;
+}
+
+.iconLink:hover {
+  transform: scale(1.2);
+  color: var(--bs-light);
+}
