@@ -2,10 +2,10 @@ import PrivacyNotice from './components/privacyNotice/PrivacyNotice'
 
 const TermsConditionsSection = () => {
   return (
-    <div>
+    <section>
       <h3>Terminos y condiciones</h3>
       <PrivacyNotice />
-    </div>
+    </section>
   )
 }
 

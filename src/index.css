@@ -14,9 +14,10 @@
   --line-height-base: 1.5;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
-}
 
-/* RESET Y BASE VISUAL */
+  --bp-md: 768px;
+  --bp-lg: 992px;
+}
 
 *,
 *::before,
