@@ -9,7 +9,9 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-text: #000000;
-  --color-background: #dfdfdf;
+  --color-background: #f3f3f3;
+  --color-muted: #767676;
+  --color-blue: #263043;
 
   --line-height-base: 1.5;
   --font-weight-regular: 400;
@@ -107,4 +109,8 @@ p {
   margin: 1rem 0px;
   padding: 0.5rem 1rem;
   border: 3px solid var(--color-accent);
+}
+.spacing {
+  padding: 8rem 0rem;
+  margin: 0rem;
 }
