@@ -1,0 +1,62 @@
+.spacing {
+  padding: 10rem 0rem;
+  margin: 0rem;
+}
+.cardLeft {
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image: linear-gradient(
+      to bottom,
+      var(--color-background),
+      var(--color-accent),
+      var(--color-background)
+    )
+    1 100%;
+}
+.cardRight {
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image: linear-gradient(
+      to bottom,
+      var(--color-background),
+      var(--color-accent),
+      var(--color-background)
+    )
+    1 100%;
+}
+.titleSection {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+}
+.titleIcon {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.textSection {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-primary);
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+.clrGold {
+  color: var(--color-accent);
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  .titleSection {
+    /* font-size: 2.5rem; */
+    /* margin-bottom: 2.5rem; */
+  }
+  .cardRight {
+    border-left: none;
+  }
+}

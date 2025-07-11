@@ -1,8 +1,9 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { FaFacebookF } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 import styles from './styles/socialIcons.module.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 
 interface SocialIconsProps {
   direction?: 'horizontal' | 'vertical'
@@ -29,13 +30,15 @@ const SocialIcons: FC<SocialIconsProps> = ({ direction = 'horizontal' }) => {
         [styles.vertical]: direction === 'vertical',
       })}
     >
+      <FaFacebookF className={styles.iconLink} />
+      <FaXTwitter className={styles.iconLink} />
       {SOCIAL_MEDIA.map(({ href, icon, label }) => (
         <a
           key={icon}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${styles.iconLink} bi bi-${icon}`}
+          className={`${styles.iconLink}`}
           aria-label={label}
           title={label}
         />

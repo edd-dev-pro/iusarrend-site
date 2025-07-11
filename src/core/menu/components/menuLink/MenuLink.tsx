@@ -8,12 +8,15 @@ interface Props extends Pick<NavLinkProps, 'to' | 'end' | 'onClick'> {
 
 const MenuLink = ({ to, label, end, onClick }: Props) => {
   return (
-    <li>
+    <li className="d-block d-md-flex align-items-md-center">
       <NavLink
         to={to}
         end={end}
         onClick={onClick}
-        className={clsx('mb-2 border-3 text-decoration-none', styles.navLink)}
+        className={clsx(
+          'mb-2 mb-md-0 border-3 text-decoration-none',
+          styles.navLink,
+        )}
         // className={({ isActive }) =>
         //   clsx(styles.link, isActive && styles.linkActive)
         // }
