@@ -1,0 +1,58 @@
+/* --font-base: 'polymath', sans-serif;
+  --font-heading: 'polymath-display', sans-serif;
+  --font-body: 'polymath-text', sans-serif;
+
+  --color-primary: #22304a;
+  --color-secondary: #f0c985;
+  --color-accent: #987146;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #000000;
+  --color-background: #dfdfdf;
+
+  --line-height-base: 1.5;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --bp-md: 768px;
+  --bp-lg: 992px; */
+
+.spacing {
+  padding: 5rem 0rem;
+  margin: 0rem;
+}
+.img {
+  width: 100%;
+  box-shadow: 15px 15px 0px 0px rgba(152, 113, 70, 1);
+  -webkit-box-shadow: 15px 15px 0px 0px rgba(152, 113, 70, 1);
+  -moz-box-shadow: 15px 15px 0px 0px rgba(152, 113, 70, 1);
+}
+.titleSection {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+}
+.titleLine {
+  border-left: 5px solid var(--color-accent);
+}
+.textSection {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-muted);
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+
+@media (min-width: 992px) {
+  .spacing {
+    padding: 10rem 0rem;
+    margin: 0rem;
+  }
+  .titleSection {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}

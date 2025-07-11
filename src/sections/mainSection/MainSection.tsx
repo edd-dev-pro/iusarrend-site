@@ -7,9 +7,9 @@ const MainSection = () => {
       <Banner />
       <WhoAreWe />
       <Policy />
-      <Quote />
       <MissionVision />
       <Values />
+      <Quote />
     </section>
   )
 }

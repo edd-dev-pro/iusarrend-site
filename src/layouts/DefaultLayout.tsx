@@ -1,5 +1,4 @@
 import type { FC, ReactNode } from 'react'
-import { Container } from 'react-bootstrap'
 
 import { BackgroundVisual } from '../components'
 import { HeaderMenu } from '../core'
@@ -14,9 +13,7 @@ const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
       <BackgroundVisual />
 
       <HeaderMenu />
-      <Container className="position-relative">
-        <main>{children}</main>
-      </Container>
+      <main>{children}</main>
     </div>
   )
 }
