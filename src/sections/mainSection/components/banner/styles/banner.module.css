@@ -8,6 +8,7 @@
   font-family: var(--font-heading);
   font-size: 5rem;
   letter-spacing: 0.4rem;
+  font-weight: var(--font-weight-regular);
 }
 
 .subTitle {
@@ -23,4 +24,7 @@
 .btnMain:hover {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
+}
+.heightBanner {
+  min-height: 100vh;
 }
