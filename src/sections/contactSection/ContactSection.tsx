@@ -1,12 +1,10 @@
-import { Address, Reviews, SocialMedia } from './components'
+import { Address, Reviews } from './components'
 
 const ContactSection = () => {
   return (
     <section>
-      <h3>Contacto</h3>
-      <Address />
-      <SocialMedia />
       <Reviews />
+      <Address />
     </section>
   )
 }
