@@ -82,6 +82,8 @@
     flex-direction: row;
     align-items: center;
     gap: 3rem;
+    transform: none !important;
+    transition: none !important;
   }
   .main {
     flex-direction: row;
