@@ -1,11 +1,11 @@
-import { Benefits, Prices, Requirements } from './components'
+import { Benefits, Requirements } from './components'
 
 const PlansPricesSection = () => {
   return (
     <section>
-      <h3>Planes y precios</h3>
+      {/* <h3>Planes y precios</h3> */}
       <Benefits />
-      <Prices />
+      {/* <Prices /> */}
       <Requirements />
     </section>
   )
