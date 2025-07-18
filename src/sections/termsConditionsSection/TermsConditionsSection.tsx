@@ -1,8 +1,8 @@
 import PrivacyNotice from './components/privacyNotice/PrivacyNotice'
 
-const TermsConditionsSection = () => {
+const TermsConditionsSection = ({ idValue }: { idValue: string }) => {
   return (
-    <section>
+    <section id={idValue}>
       <PrivacyNotice />
     </section>
   )

@@ -1,8 +1,8 @@
 import { Address, Reviews } from './components'
 
-const ContactSection = () => {
+const ContactSection = ({ idValue }: { idValue: string }) => {
   return (
-    <section>
+    <section id={idValue}>
       <Reviews />
       <Address />
     </section>

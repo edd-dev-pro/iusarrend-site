@@ -21,12 +21,21 @@ li {
   text-align: center;
   padding: 1.2rem;
 }
-
 .navLink {
   font-size: 2rem;
   /* font-family: var(--font-base); */
   font-family: var(--font-heading);
   letter-spacing: 0.3rem;
+}
+
+/* color cuando el puntero está encima */
+.navLink:hover {
+  color: var(--color-accent); /* por ejemplo #F0C985 (amarillo) */
+}
+
+/* color cuando la sección está activa (scroll‑spy) */
+.active {
+  color: var(--color-accent); /* por ejemplo #987146 o el que quieras */
 }
 
 @media (orientation: landscape) {
