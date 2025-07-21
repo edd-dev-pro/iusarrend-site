@@ -8,7 +8,10 @@ interface MenuProps {
 }
 
 const MenuRoot: FC<MenuProps> = ({ children }) => {
-  return <nav className={styles.root}>{children}</nav>
+  const { open } = useMenuCtx()
+  return (
+    <nav className={clsx(styles.root, open && styles.open)}>{children}</nav>
+  )
 }
 
 const Header = ({
@@ -18,14 +21,16 @@ const Header = ({
   children: ReactNode
   className?: string
 }) => {
-  const { toggle } = useMenuCtx()
+  const { open, toggle } = useMenuCtx()
+
   return (
     <div className={clsx(styles.header, className)}>
       {children}
       <button
         aria-label="toggle menu"
+        aria-expanded={open}
         onClick={toggle}
-        className={clsx(styles.burger, styles.burgerOpen)}
+        className={clsx(styles.burger, open && styles.burgerOpen)}
       >
         <span aria-hidden="true" />
         <span aria-hidden="true" />

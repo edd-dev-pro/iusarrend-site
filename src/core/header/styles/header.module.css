@@ -37,6 +37,8 @@
     position: static;
     height: auto;
     background-color: transparent;
+    transform: none !important;
+    transition: none !important;
   }
   .boxLogo {
     display: none;

@@ -1,12 +1,10 @@
-import { Address, Reviews, SocialMedia } from './components'
+import { Address, Reviews } from './components'
 
-const ContactSection = () => {
+const ContactSection = ({ idValue }: { idValue: string }) => {
   return (
-    <section>
-      <h3>Contacto</h3>
-      <Address />
-      <SocialMedia />
+    <section id={idValue}>
       <Reviews />
+      <Address />
     </section>
   )
 }
