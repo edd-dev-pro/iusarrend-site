@@ -1,28 +1,30 @@
+import type { FC } from 'react'
+import { Link } from 'react-router-dom'
+import { useMenuCtx } from '../../../hooks'
 import clsx from 'clsx'
-import { NavLink, type NavLinkProps } from 'react-router-dom'
 import styles from './styles/menuLink.module.css'
 
-interface Props extends Pick<NavLinkProps, 'to' | 'end' | 'onClick'> {
+interface MenuLinkProps {
+  id: string
   label: string
+  activeId: string
 }
 
-const MenuLink = ({ to, label, end, onClick }: Props) => {
+const MenuLink: FC<MenuLinkProps> = ({ id, label, activeId }) => {
+  const { toggle } = useMenuCtx()
+
+  const slug = id.toLowerCase()
+  const isActive = id === activeId
+
   return (
     <li className="d-block d-md-flex align-items-md-center">
-      <NavLink
-        to={to}
-        end={end}
-        onClick={onClick}
-        className={clsx(
-          'mb-2 mb-md-0 border-3 text-decoration-none',
-          styles.navLink,
-        )}
-        // className={({ isActive }) =>
-        //   clsx(styles.link, isActive && styles.linkActive)
-        // }
+      <Link
+        to={`/${slug}`}
+        className={clsx(styles.navLink, isActive && styles.active)}
+        onClick={() => toggle()}
       >
         {label}
-      </NavLink>
+      </Link>
     </li>
   )
 }

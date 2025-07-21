@@ -1,11 +1,9 @@
-import { Benefits, Prices, Requirements } from './components'
+import { Benefits, Requirements } from './components'
 
-const PlansPricesSection = () => {
+const PlansPricesSection = ({ idValue }: { idValue: string }) => {
   return (
-    <section>
-      <h3>Planes y precios</h3>
+    <section id={idValue}>
       <Benefits />
-      <Prices />
       <Requirements />
     </section>
   )
