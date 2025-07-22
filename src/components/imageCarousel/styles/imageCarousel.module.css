@@ -4,7 +4,7 @@
   height: 100%;
   overflow: hidden;
 }
-.carouselContainer::before {
+.carouselContainer::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -44,12 +44,12 @@
 .dot {
   width: 10px;
   height: 10px;
-  background: #bbb;
+  background: var(--color-background);
   border-radius: 50%;
   border: none;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 .dotActive {
-  background: #fff;
+  background: var(--color-accent);
 }
