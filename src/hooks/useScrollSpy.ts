@@ -1,47 +1,42 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import type { SectionId, SectionSlug } from '../pages/slugMap'
-
-type IdToSlugFn = (id: SectionId) => SectionSlug
+import type { SectionId } from '../pages/slugMap'
 
 /**
- * Observa las secciones, devuelve el id visible y – solo si el slug
- * ES DISTINTO – actualiza la URL con `navigate`.
+ * Observa las secciones visibles en pantalla y devuelve el id activo.
+ *
+ * @param ids    ids de secciones EN ORDEN de aparición
+ * @param offset altura (px) que ocupa el header fijo
  */
 export default function useScrollSpy(
   ids: readonly SectionId[],
-  offset = 64,
-  toSlug: IdToSlugFn,
-) {
+  offset = 64, // ⚠️ el header tiene 64px
+): SectionId {
   const [activeId, setActiveId] = useState<SectionId>(ids[0])
-  const navigate = useNavigate()
-  const { pathname } = useLocation() // '/planes', …
 
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const id = e.target.id as SectionId
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id as SectionId
             setActiveId(id)
-
-            /* solo navegamos si el slug cambió */
-            const slug = toSlug(id)
-            if (pathname !== `/${slug}`) {
-              navigate(`/${slug}`, { replace: true })
-            }
+            break
           }
-        })
+        }
       },
-      { rootMargin: `-${offset}px 0px -70% 0px` },
+      {
+        rootMargin: `-${offset}px 0px -70% 0px`,
+        threshold: 0,
+      },
     )
 
     ids.forEach((id) => {
       const el = document.getElementById(id)
       if (el) obs.observe(el)
     })
+
     return () => obs.disconnect()
-  }, [ids, offset, toSlug, pathname, navigate])
+  }, [ids, offset])
 
   return activeId
 }
