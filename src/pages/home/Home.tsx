@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-
 import DefaultLayout from '../../layouts/DefaultLayout'
 import {
   MainSection,
@@ -9,29 +6,11 @@ import {
   ContactSection,
 } from '../../sections'
 
-import {
-  SECTION_IDS,
-  slugToId,
-  type SectionId,
-  type SectionSlug,
-} from '../slugMap'
+import useScrollSpy from '../../hooks/useScrollSpy'
+import { SECTION_IDS, type SectionId } from '../slugMap'
 
 export default function Home() {
-  const { slug } = useParams<'slug'>()
-
-  const [activeId, setActiveId] = useState<SectionId>('Inicio')
-
-  useEffect(() => {
-    const id = slug ? slugToId[slug as SectionSlug] : 'Inicio'
-    setActiveId(id)
-
-    const target = document.getElementById(id)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }, [slug])
+  const activeId = useScrollSpy(SECTION_IDS, 54) as SectionId
 
   return (
     <DefaultLayout activeId={activeId} sectionIds={SECTION_IDS}>

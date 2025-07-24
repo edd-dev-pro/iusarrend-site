@@ -1,23 +1,25 @@
 import clsx from 'clsx'
-import { SocialIcons } from '../../../../components'
+import { ImageCarousel, SocialIcons } from '../../../../components'
 import styles from './styles/banner.module.css'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
+import { IMGS } from '../../../../components/types/values'
 
 const Banner = () => {
   return (
-    <div>
+    <div className="position-relative">
+      <ImageCarousel images={IMGS} interval={5000} />
       <Container className="position-relative">
-        <div
-          /* TODO EMC [06/26/2025]: Pending style validation */
-          // className="d-flex justify-content-center align-items-center"
-          className={clsx('row', styles.banner)}
-        >
-          <div className="col-1 col-md-2 pb-md-5 align-content-end justify-items-start">
+        <Row className={styles.banner}>
+          <Col
+            xs={1}
+            md={2}
+            className="pb-md-5 align-content-end justify-items-start"
+          >
             <div className="d-none d-md-block">
               <SocialIcons />
             </div>
-          </div>
-          <div className="col-10 col-md-8 align-content-center">
+          </Col>
+          <Col xs={10} md={8} className="align-content-center">
             <h1 className={styles.title}>Renta Segura</h1>
             <p className={clsx('text-light', styles.subTitle)}>
               Lorem ipsum dolor sit amet
@@ -31,9 +33,9 @@ const Banner = () => {
             >
               AGENDAR
             </button>
-          </div>
-          <div className="col-1 col-md-2"></div>
-        </div>
+          </Col>
+          <Col xs={1} md={2}></Col>
+        </Row>
       </Container>
     </div>
   )
