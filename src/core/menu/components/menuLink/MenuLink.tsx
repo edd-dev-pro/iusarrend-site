@@ -12,7 +12,6 @@ interface MenuLinkProps {
 
 const MenuLink: FC<MenuLinkProps> = ({ id, label, activeId }) => {
   const { toggle } = useMenuCtx()
-
   const slug = id.toLowerCase()
   const isActive = id === activeId
 
@@ -21,7 +20,13 @@ const MenuLink: FC<MenuLinkProps> = ({ id, label, activeId }) => {
       <Link
         to={`/${slug}`}
         className={clsx(styles.navLink, isActive && styles.active)}
-        onClick={() => toggle()}
+        onClick={() => {
+          const el = document.getElementById(id)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+          toggle()
+        }}
       >
         {label}
       </Link>

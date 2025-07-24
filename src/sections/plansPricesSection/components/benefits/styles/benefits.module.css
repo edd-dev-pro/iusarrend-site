@@ -5,7 +5,7 @@
 .bgImg {
   position: relative;
   inset: 0;
-  background-image: url('/src/assets/house.jpg');
+  background-image: url('/assets/backgrounds/banner-5.webp');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
