@@ -31,7 +31,7 @@ const Banner = () => {
                 styles.btnMain,
               )}
             >
-              AGENDAR
+              COTIZA
             </button>
           </Col>
           <Col xs={1} md={2}></Col>
