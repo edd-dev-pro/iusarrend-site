@@ -1,9 +1,8 @@
-import { Address, Reviews } from './components'
+import { Address } from './components'
 
 const ContactSection = ({ idValue }: { idValue: string }) => {
   return (
     <section id={idValue}>
-      <Reviews />
       <Address />
     </section>
   )
