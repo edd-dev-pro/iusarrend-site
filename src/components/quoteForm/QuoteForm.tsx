@@ -63,7 +63,7 @@ const QuoteForm: FC = () => {
           inputMode="decimal"
           id="rentInput"
           className="form-control"
-          placeholder="Ej. 150000"
+          placeholder="Ej. $1,500.00"
           value={input}
           onChange={handleChange}
           autoComplete="off"
