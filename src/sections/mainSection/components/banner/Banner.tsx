@@ -31,7 +31,7 @@ const Banner = () => {
                 styles.btnMain,
               )}
             >
-              COTIZA
+              Cotizar ahora
             </button>
           </Col>
           <Col xs={1} md={2}></Col>
