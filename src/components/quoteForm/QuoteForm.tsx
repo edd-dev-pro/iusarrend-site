@@ -1,8 +1,12 @@
 import { type FC, useState } from 'react'
-import { findPolicies, type PolicyBracket } from './data'
+import {
+  findPolicies,
+  MAX_DIGITS,
+  NON_ALLOWED,
+  type PolicyBracket,
+} from './data'
 import styles from './styles/quoteForm.module.css'
 
-/** Formatea números MXN: 1234.5 → $1,234.50 */
 const mxn = (n: number) =>
   n.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })
 
@@ -12,7 +16,12 @@ const QuoteForm: FC = () => {
   const [error, setError] = useState<string>('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value)
+    const sanitized = e.target.value.replace(NON_ALLOWED, '')
+    const digitsOnly = sanitized.replace(/[^0-9]/g, '')
+
+    if (digitsOnly.length > MAX_DIGITS) return
+
+    setInput(sanitized)
     setError('')
     setQuote(null)
   }
@@ -20,14 +29,20 @@ const QuoteForm: FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const value = input.replace(/[^0-9.]/g, '')
-    const rent = parseFloat(value)
+    const cleaned = input.replace(/[^0-9.]/g, '')
+    const digitsOnly = cleaned.replace(/\./g, '')
 
-    if (!value || isNaN(rent)) {
+    if (!cleaned || isNaN(parseFloat(cleaned))) {
       setError('Ingresa un monto numérico válido.')
       return
     }
 
+    if (digitsOnly.length > MAX_DIGITS) {
+      setError(`El monto no debe exceder ${MAX_DIGITS} dígitos.`)
+      return
+    }
+
+    const rent = parseFloat(cleaned)
     const result = findPolicies(rent)
 
     if (result) {
@@ -48,10 +63,14 @@ const QuoteForm: FC = () => {
           inputMode="decimal"
           id="rentInput"
           className="form-control"
-          placeholder="Ej. 15000"
+          placeholder="Ej. 150000"
           value={input}
           onChange={handleChange}
+          autoComplete="off"
         />
+        <small className="text-muted">
+          Máximo {MAX_DIGITS} dígitos · solo números, ‘$’, ‘,’ o ‘.’.
+        </small>
       </div>
 
       <button type="submit" className="btn btn-primary">
@@ -63,7 +82,7 @@ const QuoteForm: FC = () => {
       {quote && (
         <div className={`mt-4 p-3 border rounded ${styles.resultBox}`}>
           <h5 className="fw-bold mb-3">
-            Rango: {mxn(quote.min)} –{quote.max ? mxn(quote.max) : '∞'}
+            Rango: {mxn(quote.min)} – {quote.max ? mxn(quote.max) : '∞'}
           </h5>
 
           <ul className="list-unstyled mb-0">

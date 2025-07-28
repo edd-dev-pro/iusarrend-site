@@ -79,6 +79,10 @@ export const POLICIES: PolicyBracket[] = [
   },
 ]
 
+export const MAX_DIGITS = 8
+
+export const NON_ALLOWED = /[^0-9.,$]/g
+
 export const PERCENTAGES = {
   classic: 0.2,
   gold: 0.27,
