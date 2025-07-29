@@ -17,30 +17,38 @@ const MissionVision = () => {
           <div className={clsx('col-12 col-md-5 px-5', styles.cardLeft)}>
             <div className={clsx('text-center')}>
               <h6 className={clsx(styles.titleSection, styles.titleIcon)}>
-                <FiTarget className={clsx('pb-2', styles.clrGold)} />
+                <span
+                  className={clsx('p-2 mb-3 rounded-circle', styles.iconCircle)}
+                >
+                  <FiTarget className={clsx(styles.clrGold)} />
+                </span>
                 Misión
               </h6>
               <p className={clsx('mb-0', styles.textSection)}>
-                Ser la empresa líder en México en protección Arrendaria,
-                garantizando seguridad, confianza y respaldo legal para
-                arrendadores, mediante soluciones claras, mediadoras, efectivas
-                y humanas.
+                Proteger los intereses legales de nuestros clientes en contratos
+                de arrendamiento mediante asesoría especializada, oportuna y
+                precisa; elaborando contratos claros y transparentes, realizando
+                procesos de investigación integral y ofreciendo representación
+                legal profesional que genere certidumbre durante toda la
+                relación arrendaticia.
               </p>
             </div>
           </div>
           <div className={clsx('col-12 col-md-5 px-5', styles.cardRight)}>
             <div className={clsx('text-center')}>
               <h6 className={clsx(styles.titleSection, styles.titleIcon)}>
-                <IoEyeOutline className={clsx('pb-2', styles.clrGold)} />
+                <span
+                  className={clsx('p-2 mb-3 rounded-circle', styles.iconCircle)}
+                >
+                  <IoEyeOutline className={clsx(styles.clrGold)} />
+                </span>
                 Visión
               </h6>
               <p className={clsx('mb-0', styles.textSection)}>
-                Proteger los intereses legales de nuestros clientes en contratos
-                de arrendamiento a través de asesoría especializada, puntual y
-                oportuna, mediante redacción de contratos concretos y
-                transparentes, realizando procesos de investigación y
-                representación legal, brindando certidumbre y tranquilidad
-                durante toda la relación arrendaticia.
+                Ser la empresa líder en México en protección arrendaria,
+                brindando seguridad, confianza y respaldo legal a los
+                arrendadores, a través de soluciones jurídicas claras,
+                efectivas, humanas y orientadas a la conciliación.
               </p>
             </div>
           </div>

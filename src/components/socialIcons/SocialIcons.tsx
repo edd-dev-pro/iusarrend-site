@@ -1,7 +1,7 @@
+// src/components/socialIcons/SocialIcons.tsx
 import type { FC } from 'react'
 import clsx from 'clsx'
-import { FaFacebookF } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaFacebookF, FaInstagram } from 'react-icons/fa'
 
 import styles from './styles/socialIcons.module.css'
 
@@ -11,40 +11,37 @@ interface SocialIconsProps {
 
 const SOCIAL_MEDIA = [
   {
-    href: 'https://www.facebook.com/IUSARREND',
-    icon: 'facebook',
+    href: 'https://www.facebook.com/iusarrend/',
+    Icon: FaFacebookF,
     label: 'Facebook',
   },
   {
-    href: 'https://www.twitter.com/IUSARREND',
-    icon: 'twitter-x',
-    label: 'Twitter',
+    href: 'https://www.instagram.com/iusarrend/',
+    Icon: FaInstagram,
+    label: 'Instagram',
   },
 ]
 
-const SocialIcons: FC<SocialIconsProps> = ({ direction = 'horizontal' }) => {
-  return (
-    <div
-      /* TODO EMC [06/27/2025]: Refactorizar con clsx */
-      className={clsx(styles.iconContainer, {
-        [styles.vertical]: direction === 'vertical',
-      })}
-    >
-      <FaFacebookF className={styles.iconLink} />
-      <FaXTwitter className={styles.iconLink} />
-      {SOCIAL_MEDIA.map(({ href, icon, label }) => (
-        <a
-          key={icon}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${styles.iconLink}`}
-          aria-label={label}
-          title={label}
-        />
-      ))}
-    </div>
-  )
-}
+const SocialIcons: FC<SocialIconsProps> = ({ direction = 'horizontal' }) => (
+  <div
+    className={clsx(styles.iconContainer, {
+      [styles.vertical]: direction === 'vertical',
+    })}
+  >
+    {SOCIAL_MEDIA.map(({ href, Icon, label }) => (
+      <a
+        key={label}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        title={label}
+        className={styles.iconLink}
+      >
+        <Icon />
+      </a>
+    ))}
+  </div>
+)
 
 export default SocialIcons

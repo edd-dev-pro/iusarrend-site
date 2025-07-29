@@ -16,7 +16,11 @@ const Values = () => {
                 styles.titleIcon,
               )}
             >
-              <FaRegGem className={styles.clrGold} />
+              <span
+                className={clsx('p-3 mb-3 rounded-circle', styles.iconCircle)}
+              >
+                <FaRegGem className={styles.clrGold} />
+              </span>
               Nuestros Valores
             </h6>
           </div>
@@ -27,13 +31,13 @@ const Values = () => {
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>LEGALIDAD</span>
                 <br />
-                Actuamos dentro del Marco Jurídico vigente.
+                Actuamos con estricto apego al marco jurídico vigente.
               </p>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>RESPONSABILIDAD</span>
                 <br />
-                Claridad y efectividad en cada una de las manifestaciones, de
-                las relaciones contractuales.
+                Garantizamos claridad y eficacia en cada manifestación jurídica
+                dentro de las relaciones contractuales.
               </p>
             </div>
           </div>
@@ -41,14 +45,15 @@ const Values = () => {
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>ÉTICA</span>
-                <br /> Transparencia y veracidad en el actuar en cada
-                manifestación de la voluntad de nuestros clientes.
+                <br />
+                Nos regimos por la transparencia y la veracidad en cada acto
+                jurídico, reflejando fielmente la voluntad de nuestros clientes.
               </p>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>CONFIANZA</span>
-                <br /> Generamos relaciones sólidas con nuestros clientes
-                mediante limpidez y conclusiones satisfactorias de los acuerdos
-                de nuestros clientes.
+                <br />
+                Construimos relaciones sólidas mediante procesos claros,
+                resultados satisfactorios y compromiso profesional.
               </p>
             </div>
           </div>
@@ -56,15 +61,16 @@ const Values = () => {
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>PREVENCIÓN</span>
-                <br /> Mediante las investigaciones, anticipamos riesgos dentro
-                de las relaciones contractuales, evitando conflictos.
+                <br />
+                Anticipamos riesgos a través de investigaciones rigurosas,
+                evitando conflictos en las relaciones contractuales.
               </p>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>COMPROMISO</span>
-                <br /> Conformamos un equipo capaz de llevar a cabo desde el
-                primer contacto con nuestros clientes, hasta la terminación de
-                la relación contractual, logrando certeza y certidumbre para
-                nuestros contratantes.
+                <br />
+                Acompañamos a nuestros clientes desde el primer contacto hasta
+                la conclusión de la relación contractual, brindando certeza y
+                respaldo constante.
               </p>
             </div>
           </div>
@@ -72,14 +78,16 @@ const Values = () => {
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>ACCESIBILIDAD</span>
-                <br /> A petición del cliente se realiza una explicación clara y
-                concisa sobre la complejidad de la interpretación jurídica,
-                haciendo digerible y amable la formulación contractual.
+                <br />
+                Facilitamos la comprensión de términos jurídicos mediante
+                explicaciones claras y accesibles, haciendo amigable el proceso
+                legal.
               </p>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>EFICIENCIA</span>
-                <br /> Respondemos de forma oportuna y precisión jurídica
-                durante la relación contractual de arrendamiento.
+                <br />
+                Respondemos con prontitud y precisión jurídica durante toda la
+                relación de arrendamiento.
               </p>
             </div>
           </div>

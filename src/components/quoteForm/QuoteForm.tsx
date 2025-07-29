@@ -6,6 +6,7 @@ import {
   type PolicyBracket,
 } from './data'
 import styles from './styles/quoteForm.module.css'
+import { PlanComparison } from '..'
 
 const mxn = (n: number) =>
   n.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })
@@ -53,7 +54,7 @@ const QuoteForm: FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="rentInput" className="form-label fw-semibold">
           Monto de la renta (MXN)
@@ -71,6 +72,17 @@ const QuoteForm: FC = () => {
         <small className="text-muted">
           Máximo {MAX_DIGITS} dígitos · solo números, ‘$’, ‘,’ o ‘.’.
         </small>
+        <small className="text-muted mt-4 d-block">
+          COSTO DE PÓLIZA CLÁSICA MAYOR A $50,000 20% DEL VALOR DE LA RENTA MÁS
+          IVA.
+        </small>
+        <small className="text-muted mt-2 d-block">
+          COSTO DE PÓLIZA ORO MAYOR A $50,000 27% DEL VALOR DE LA RENTA MÁS IVA.
+        </small>
+        <small className="text-muted mt-2 d-block">
+          COSTO DE PÓLIZA BLACK MAYOR A $50,000 35% DEL VALOR DE LA RENTA MÁS
+          IVA.
+        </small>
       </div>
 
       <button type="submit" className="btn btn-primary">
@@ -80,23 +92,30 @@ const QuoteForm: FC = () => {
       {error && <div className="alert alert-danger mt-3">{error}</div>}
 
       {quote && (
-        <div className={`mt-4 p-3 border rounded ${styles.resultBox}`}>
-          <h5 className="fw-bold mb-3">
-            Rango: {mxn(quote.min)} – {quote.max ? mxn(quote.max) : '∞'}
-          </h5>
+        <>
+          <div className={`mt-4 p-3 border rounded ${styles.resultBox}`}>
+            <h5 className="fw-bold mb-3">
+              Rango: {mxn(quote.min)} – {quote.max ? mxn(quote.max) : '∞'}
+            </h5>
 
-          <ul className="list-unstyled mb-0">
-            <li>
-              <strong>Póliza Clásica:</strong> {mxn(quote.classicPolicy)}
-            </li>
-            <li>
-              <strong>Póliza Oro:</strong> {mxn(quote.goldPolicy)}
-            </li>
-            <li>
-              <strong>Póliza Black:</strong> {mxn(quote.blackPolicy)}
-            </li>
-          </ul>
-        </div>
+            <ul className="list-unstyled mb-0">
+              <li>
+                <strong>Póliza Clásica:</strong> {mxn(quote.classicPolicy)}
+              </li>
+              <li>
+                <strong>Póliza Oro:</strong> {mxn(quote.goldPolicy)}
+              </li>
+              <li>
+                <strong>Póliza Black:</strong> {mxn(quote.blackPolicy)}
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-5">
+            <h4 className="mb-3 text-center">¿Qué incluye cada plan?</h4>
+            <PlanComparison />
+          </div>
+        </>
       )}
     </form>
   )
