@@ -4,7 +4,7 @@ import { QuoteForm } from '../../../../components'
 
 const Quote = () => {
   return (
-    <div>
+    <div id="quote">
       <Container>
         <Row className={styles.spacing}>
           <Col xs={12}>

@@ -4,9 +4,9 @@ import clsx from 'clsx'
 
 const PrivacyNotice = () => {
   return (
-    <div className={clsx(styles.spacing, styles.bgBlue)}>
+    <div className={styles.bgImg}>
       <Container>
-        <Row>
+        <Row className={styles.spacing}>
           <Col xs={12}>
             <h2 className={clsx('text-center', styles.titleSection)}>
               Terminos y Condiciones

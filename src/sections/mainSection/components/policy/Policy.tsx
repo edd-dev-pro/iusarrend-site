@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 const Policy = () => {
   return (
-    <div className={clsx(styles.bg)}>
+    <div className={clsx(styles.bgImg)}>
       <Container>
         <div className={clsx('row justify-content-md-center', styles.spacing)}>
           <div className="col-2 d-none d-md-blok"></div>

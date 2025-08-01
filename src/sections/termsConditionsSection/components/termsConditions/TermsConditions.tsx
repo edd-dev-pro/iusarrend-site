@@ -4,9 +4,9 @@ import clsx from 'clsx'
 
 const TermsConditions = () => {
   return (
-    <div className={clsx(styles.spacing)}>
+    <div>
       <Container>
-        <Row>
+        <Row className={styles.spacing}>
           <Col xs={12}>
             <h2 className={clsx('text-center', styles.titleSection)}>
               Aviso de Privacidad

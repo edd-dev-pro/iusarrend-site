@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 const Values = () => {
   return (
-    <div className={styles.spacing}>
+    <div className={clsx(styles.spacing, styles.bgImg)}>
       <Container>
         <div className="row">
           <div className="col-12 col-md-12 list-none">

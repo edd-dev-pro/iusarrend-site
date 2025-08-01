@@ -7,10 +7,8 @@ import type { SectionId } from '../pages/slugMap'
  * @param ids    ids de secciones EN ORDEN de aparición
  * @param offset altura (px) que ocupa el header fijo
  */
-export default function useScrollSpy(
-  ids: readonly SectionId[],
-  offset = 64, // ⚠️ el header tiene 64px
-): SectionId {
+
+const useScrollSpy = (ids: readonly SectionId[], offset = 64): SectionId => {
   const [activeId, setActiveId] = useState<SectionId>(ids[0])
 
   useEffect(() => {
@@ -40,3 +38,5 @@ export default function useScrollSpy(
 
   return activeId
 }
+
+export default useScrollSpy

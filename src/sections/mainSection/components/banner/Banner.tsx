@@ -1,10 +1,13 @@
-import clsx from 'clsx'
-import { ImageCarousel, SocialIcons } from '../../../../components'
-import styles from './styles/banner.module.css'
 import { Col, Container, Row } from 'react-bootstrap'
+import { ImageCarousel, SocialIcons } from '../../../../components'
 import { IMGS } from '../../../../components/types/values'
+import clsx from 'clsx'
+import styles from './styles/banner.module.css'
+import { useScrollToSection } from '../../../../hooks'
 
 const Banner = () => {
+  const scrollToSection = useScrollToSection(64) // header alto = 64 px
+
   return (
     <div className="position-relative">
       <ImageCarousel images={IMGS} interval={5000} />
@@ -30,6 +33,7 @@ const Banner = () => {
                 'btn text-light border border-2 rounded-pill mt-4 px-4',
                 styles.btnMain,
               )}
+              onClick={() => scrollToSection('quote')}
             >
               Cotizar ahora
             </button>
