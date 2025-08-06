@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { FaRegGem } from 'react-icons/fa'
 import styles from './styles/values.module.css'
 import clsx from 'clsx'
@@ -7,8 +7,8 @@ const Values = () => {
   return (
     <div className={clsx(styles.spacing, styles.bgImg)}>
       <Container>
-        <div className="row">
-          <div className="col-12 col-md-12 list-none">
+        <Row>
+          <Col className="col-12 col-md-12 list-none">
             <h6
               className={clsx(
                 'text-center p-0 ps-md-3',
@@ -23,10 +23,10 @@ const Values = () => {
               </span>
               Nuestros Valores
             </h6>
-          </div>
-        </div>
-        <div className="row gy-4 text-center justify-content-center">
-          <div className="col-12 col-md-5 d-flex">
+          </Col>
+        </Row>
+        <Row className="gy-4 text-center justify-content-center">
+          <Col className="col-12 col-md-5 d-flex">
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>LEGALIDAD</span>
@@ -40,8 +40,8 @@ const Values = () => {
                 dentro de las relaciones contractuales.
               </p>
             </div>
-          </div>
-          <div className="col-12 col-md-5 d-flex">
+          </Col>
+          <Col className="col-12 col-md-5 d-flex">
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>ÉTICA</span>
@@ -56,8 +56,8 @@ const Values = () => {
                 resultados satisfactorios y compromiso profesional.
               </p>
             </div>
-          </div>
-          <div className="col-12 col-md-5 d-flex">
+          </Col>
+          <Col className="col-12 col-md-5 d-flex">
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>PREVENCIÓN</span>
@@ -73,8 +73,8 @@ const Values = () => {
                 respaldo constante.
               </p>
             </div>
-          </div>
-          <div className="col-12 col-md-5 d-flex">
+          </Col>
+          <Col className="col-12 col-md-5 d-flex">
             <div className={styles.card}>
               <p className={clsx('mb-0', styles.textSection)}>
                 <span className={styles.highlighted}>ACCESIBILIDAD</span>
@@ -90,8 +90,8 @@ const Values = () => {
                 relación de arrendamiento.
               </p>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Container>
     </div>
   )
