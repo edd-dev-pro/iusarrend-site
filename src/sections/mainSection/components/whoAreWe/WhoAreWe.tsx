@@ -1,10 +1,21 @@
-import clsx from 'clsx'
-import styles from './styles/whoAreWe.module.css'
+import { useRef, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-// import video from '../../../../../public/assets/video/video-iusarren.mp4'
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
+import clsx from 'clsx'
 import video from '/assets/video/video-iusarren.mp4'
+import styles from './styles/whoAreWe.module.css'
 
 const WhoAreWe = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const [isMuted, setIsMuted] = useState(true)
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(videoRef.current.muted)
+    }
+  }
+
   return (
     <div>
       <Container>
@@ -12,25 +23,34 @@ const WhoAreWe = () => {
           <Col xs={12}>
             <div className={styles.heroVideoWrap}>
               <video
+                ref={videoRef}
                 className={styles.heroVideo}
                 src={video}
-                // poster={posterImg}
-                // Reglas para evitar descarga desde UI:
-                controls={false}
-                controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
-                disablePictureInPicture
-                // Autoplay silencioso (requerido para que funcione el autoplay en móviles)
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="metadata"
-                // Bloquea menú contextual (evita “Guardar video como…” en la UI)
                 onContextMenu={(e) => e.preventDefault()}
+                controls={false}
+                controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
+                disablePictureInPicture
                 aria-label="Video de presentación de IUSARREND"
               />
-              {/* (Opcional) Overlay para contraste de textos si luego agregas copy encima */}
-              {/* <div className={styles.heroOverlay} /> */}
+
+              {/* Botón flotante de sonido con react-icons */}
+              <button
+                type="button"
+                className={styles.soundButton}
+                onClick={toggleMute}
+                aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
+              >
+                {isMuted ? (
+                  <FaVolumeMute size={20} />
+                ) : (
+                  <FaVolumeUp size={20} />
+                )}
+              </button>
             </div>
           </Col>
           <Col xs={12} md={6}>
