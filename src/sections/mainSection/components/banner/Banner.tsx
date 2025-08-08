@@ -35,7 +35,7 @@ const Banner = () => {
               )}
               onClick={() => scrollToSection('quote')}
             >
-              Cotizar ahora
+              Cotizar Ahora
             </button>
           </Col>
           <Col xs={1} md={2}></Col>

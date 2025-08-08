@@ -5,20 +5,13 @@
 .titleSection {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-regular);
-  color: var(--color-accent);
+  color: var(--color-primary);
   margin-bottom: 1rem;
   letter-spacing: 0.1rem;
   font-size: 2rem;
 }
-.titleSection::before {
-  content: '─';
-  margin-right: 0.6em;
-  color: var(--color-accent);
-}
-.titleSection::after {
-  content: '─';
-  margin-left: 0.6em;
-  color: var(--color-accent);
+.titleLine {
+  border-left: 5px solid var(--color-accent);
 }
 .textSection {
   font-family: var(--font-base);

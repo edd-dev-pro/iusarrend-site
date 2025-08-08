@@ -9,7 +9,7 @@ const Values = () => {
       <Container>
         <Row>
           <Col className="col-12 col-md-12 list-none">
-            <h6
+            <h2
               className={clsx(
                 'text-center p-0 ps-md-3',
                 styles.titleSection,
@@ -22,7 +22,7 @@ const Values = () => {
                 <FaRegGem className={styles.clrGold} />
               </span>
               Nuestros Valores
-            </h6>
+            </h2>
           </Col>
         </Row>
         <Row className="gy-4 text-center justify-content-center">

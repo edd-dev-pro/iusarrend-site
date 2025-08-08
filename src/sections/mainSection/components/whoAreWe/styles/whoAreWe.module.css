@@ -17,6 +17,27 @@
   --bp-md: 768px;
   --bp-lg: 992px; */
 
+/* Hero de video arriba de la sección */
+.heroVideoWrap {
+  position: relative;
+  width: 100%;
+  /* Altura adaptable: 45vh en móviles, 60vh en desktop */
+  height: clamp(40vh, 55vh, 65vh);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  margin-bottom: 2rem;
+  background: #000; /* evita parpadeo al cargar */
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recorta para cubrir como hero */
+  object-position: center; /* ajusta foco */
+}
 .spacing {
   padding: 5rem 0rem;
   margin: 0rem;

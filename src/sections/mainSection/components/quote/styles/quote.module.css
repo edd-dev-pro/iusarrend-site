@@ -10,6 +10,9 @@
   letter-spacing: 0.1rem;
   font-size: 2rem;
 }
+.titleLine {
+  border-left: 5px solid var(--color-accent);
+}
 .textSection {
   font-family: var(--font-base);
   font-weight: var(--font-weight-regular);

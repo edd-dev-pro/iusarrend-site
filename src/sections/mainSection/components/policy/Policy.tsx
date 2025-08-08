@@ -1,26 +1,28 @@
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import styles from './styles/policy.module.css'
 import clsx from 'clsx'
 
 const Policy = () => {
   return (
-    <div className={clsx(styles.bgImg)}>
+    <div className={styles.bgImg}>
       <Container>
-        <div className={clsx('row justify-content-md-center', styles.spacing)}>
-          <div className="col-2 d-none d-md-blok"></div>
-          <div className="col-12 col-md-10 text-center policy">
-            <h2 className={clsx(styles.titleSection)}>
+        <Row className={clsx('row justify-content-md-center', styles.spacing)}>
+          <Col xs={12} className="d-none d-md-blok"></Col>
+          <Col xs={12} md={10}>
+            <h2 className={clsx('ps-3', styles.titleSection, styles.titleLine)}>
               Póliza de Arrendamiento
             </h2>
-            <p className={clsx('mb-0', styles.textSection)}>
-              Ser la póliza jurídica líder en México en materia de
-              arrendamiento, garantizando seguridad, confianza y respaldo legal
-              tanto para arrendadores como para arrendatarios, mediante
-              soluciones claras, efectivas y humanas.
-            </p>
-          </div>
-          <div className="col-2 d-none d-md-blok"></div>
-        </div>
+            <div className={styles.card}>
+              <p className={clsx('mb-0', styles.textSection)}>
+                Es un mecanismo de protección que valida la capacidad legal y
+                económica del arrendatario, establece obligaciones contractuales
+                claras y ofrece asistencia legal en caso de incumplimiento,
+                reduciendo riesgos para el propietario.
+              </p>
+            </div>
+          </Col>
+          <Col xs={12} className="d-none d-md-blok"></Col>
+        </Row>
       </Container>
     </div>
   )

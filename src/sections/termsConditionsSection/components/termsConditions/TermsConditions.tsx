@@ -8,7 +8,7 @@ const TermsConditions = () => {
       <Container>
         <Row className={styles.spacing}>
           <Col xs={12}>
-            <h2 className={clsx('text-center', styles.titleSection)}>
+            <h2 className={clsx('ps-3', styles.titleSection, styles.titleLine)}>
               Aviso de Privacidad
             </h2>
           </Col>
