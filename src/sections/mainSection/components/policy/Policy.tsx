@@ -8,17 +8,28 @@ const Policy = () => {
       <Container>
         <Row className={clsx('row justify-content-md-center', styles.spacing)}>
           <Col xs={12} className="d-none d-md-blok"></Col>
-          <Col xs={12} md={10}>
-            <h2 className={clsx('ps-3', styles.titleSection, styles.titleLine)}>
-              Póliza de Arrendamiento
-            </h2>
-            <div className={styles.card}>
-              <p className={clsx('mb-0', styles.textSection)}>
-                Es un mecanismo de protección que valida la capacidad legal y
-                económica del arrendatario, establece obligaciones contractuales
-                claras y ofrece asistencia legal en caso de incumplimiento,
-                reduciendo riesgos para el propietario.
-              </p>
+          <Col xs={12} md={10} style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <div className={styles.contImg}>
+              <img
+                src="/assets/backgrounds/cellphone-iusarrend.png"
+                alt="iusarrend-cellphone"
+                className={styles.imgCellphone}
+              />
+            </div>
+            <div className={styles.contText}>
+              <h2
+                className={clsx('ps-3', styles.titleSection, styles.titleLine)}
+              >
+                Póliza de Arrendamiento
+              </h2>
+              <div className={styles.card}>
+                <p className={clsx('mb-0', styles.textSection)}>
+                  Es un mecanismo de protección que valida la capacidad legal y
+                  económica del arrendatario, establece obligaciones
+                  contractuales claras y ofrece asistencia legal en caso de
+                  incumplimiento, reduciendo riesgos para el propietario.
+                </p>
+              </div>
             </div>
           </Col>
           <Col xs={12} className="d-none d-md-blok"></Col>

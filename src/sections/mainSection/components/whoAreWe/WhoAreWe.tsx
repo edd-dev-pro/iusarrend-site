@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
+import { FaVolumeMute, FaVolumeUp, FaExpand, FaCompress } from 'react-icons/fa'
 import clsx from 'clsx'
 import video from '/assets/video/video-iusarren.mp4'
 import styles from './styles/whoAreWe.module.css'
@@ -8,11 +8,22 @@ import styles from './styles/whoAreWe.module.css'
 const WhoAreWe = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const [isMuted, setIsMuted] = useState(true)
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted
       setIsMuted(videoRef.current.muted)
+    }
+  }
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      videoRef.current?.requestFullscreen()
+      setIsFullscreen(true)
+    } else {
+      document.exitFullscreen()
+      setIsFullscreen(false)
     }
   }
 
@@ -38,7 +49,7 @@ const WhoAreWe = () => {
                 aria-label="Video de presentación de IUSARREND"
               />
 
-              {/* Botón flotante de sonido con react-icons */}
+              {/* Botón de sonido */}
               <button
                 type="button"
                 className={styles.soundButton}
@@ -49,6 +60,24 @@ const WhoAreWe = () => {
                   <FaVolumeMute size={20} />
                 ) : (
                   <FaVolumeUp size={20} />
+                )}
+              </button>
+
+              {/* Botón de pantalla completa */}
+              <button
+                type="button"
+                className={clsx(styles.soundButton, styles.fullscreenButton)}
+                onClick={toggleFullscreen}
+                aria-label={
+                  isFullscreen
+                    ? 'Salir de pantalla completa'
+                    : 'Pantalla completa'
+                }
+              >
+                {isFullscreen ? (
+                  <FaCompress size={18} />
+                ) : (
+                  <FaExpand size={18} />
                 )}
               </button>
             </div>

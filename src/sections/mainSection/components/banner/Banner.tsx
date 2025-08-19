@@ -1,12 +1,16 @@
 import { Col, Container, Row } from 'react-bootstrap'
-import { ImageCarousel, SocialIcons } from '../../../../components'
+import {
+  ImageCarousel,
+  SocialIcons,
+  WhatsAppButton,
+} from '../../../../components'
 import { IMGS } from '../../../../components/types/values'
 import clsx from 'clsx'
 import styles from './styles/banner.module.css'
 import { useScrollToSection } from '../../../../hooks'
 
 const Banner = () => {
-  const scrollToSection = useScrollToSection(64) // header alto = 64 px
+  const scrollToSection = useScrollToSection(64)
 
   return (
     <div className="position-relative">
@@ -38,7 +42,9 @@ const Banner = () => {
               Cotizar Ahora
             </button>
           </Col>
-          <Col xs={1} md={2}></Col>
+          <Col xs={1} md={2}>
+            <WhatsAppButton phone="525637384304" />
+          </Col>
         </Row>
       </Container>
     </div>

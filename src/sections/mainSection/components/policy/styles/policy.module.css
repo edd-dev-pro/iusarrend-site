@@ -54,10 +54,36 @@
   padding: 2.2rem;
   align-content: center;
 }
+.contImg {
+  text-align: center;
+  width: 100%;
+  /* padding-bottom: 5rem; */
+}
+.imgCellphone {
+  width: 70%;
+}
+.contText {
+  width: 100%;
+}
 
 @media (min-width: 992px) {
   .titleSection {
     font-size: 2.5rem;
     margin-bottom: 2.5rem;
+  }
+  .contImg {
+    padding-bottom: 0px;
+    position: relative;
+    width: 50%;
+  }
+  .imgCellphone {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .contText {
+    width: 50%;
   }
 }

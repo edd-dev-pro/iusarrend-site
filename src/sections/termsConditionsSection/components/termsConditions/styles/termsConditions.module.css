@@ -20,6 +20,22 @@
   letter-spacing: 1px;
   line-height: 1.7;
 }
+.subtitleSection {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+}
+.contSubtitle {
+  width: 100%;
+}
+.constText {
+  width: 100%;
+}
+.clrGold {
+  color: var(--color-accent);
+}
 
 @media (min-width: 992px) {
   .spacing {
@@ -29,5 +45,11 @@
   .titleSection {
     font-size: 2.5rem;
     margin-bottom: 2.5rem;
+  }
+  .contSubtitle {
+    width: 30%;
+  }
+  .constText {
+    width: 70%;
   }
 }
