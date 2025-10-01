@@ -9,9 +9,9 @@ const Requirements = () => {
       <Container>
         <Row>
           <Col xs={12}>
-            <h6 className={clsx('ps-3', styles.titleSection, styles.titleLine)}>
+            <h2 className={clsx('ps-3', styles.titleSection, styles.titleLine)}>
               Requisitos
-            </h6>
+            </h2>
             <Collapsible />
           </Col>
         </Row>

@@ -3,6 +3,27 @@
   margin: 0rem;
   background-color: var(--color-primary);
 }
+.bgImg {
+  position: relative;
+  inset: 0;
+  background-image: url('/assets/backgrounds/background-2.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+.bgImg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-primary);
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: -1;
+}
+.bgImg .container {
+  z-index: 1;
+}
 .titleSection {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-regular);
@@ -20,7 +41,12 @@
 .clrGold {
   color: var(--color-accent);
   font-size: 3rem;
-  margin-bottom: 2rem;
+}
+.iconCircle {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
 }
 .textSection {
   font-family: var(--font-base);
@@ -37,15 +63,17 @@
   color: var(--color-accent);
 }
 .card {
-  background-color: var(--color-blue);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 2.2rem;
   align-content: center;
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
 }
 
 @media (min-width: 992px) {

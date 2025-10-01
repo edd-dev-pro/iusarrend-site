@@ -1,3 +1,6 @@
 export { default as SocialIcons } from './socialIcons/SocialIcons'
 export { default as Collapsible } from './collapsible/Collapsible'
 export { default as ImageCarousel } from './imageCarousel/ImageCarousel'
+export { default as QuoteForm } from './quoteForm/QuoteForm'
+export { default as PlanComparison } from './planComparison/PlanComparison'
+export { default as WhatsAppButton } from './whatsAppButton/WhatsAppButton'

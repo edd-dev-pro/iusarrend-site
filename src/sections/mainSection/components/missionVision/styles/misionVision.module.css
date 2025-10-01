@@ -47,8 +47,12 @@
 }
 .clrGold {
   color: var(--color-accent);
-  font-size: 4rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.iconCircle {
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
 }
 
 @media (min-width: 992px) {

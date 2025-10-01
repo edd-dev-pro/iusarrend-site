@@ -89,17 +89,18 @@ const Header: FC<HeaderProps> = ({ activeId, sectionIds }) => {
           </Menu.Footer>
         </Menu>
       </Container>
-
-      <button
-        aria-label="toggle menu"
-        aria-expanded={open}
-        onClick={toggle}
-        className={clsx(styles.btnHeader, styless.burger)}
-      >
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-      </button>
+      <div className="d-flex align-items-center">
+        <button
+          aria-label="toggle menu"
+          aria-expanded={open}
+          onClick={toggle}
+          className={clsx(styles.btnHeader, styless.burger)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
+      </div>
     </header>
   )
 }

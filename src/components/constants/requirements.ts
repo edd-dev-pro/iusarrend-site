@@ -10,7 +10,8 @@ export const SECTIONS: Section[] = [
         items: [
           'Identificación oficial vigente (INE, Pasaporte, o en caso de ser extranjero residencia permanente)',
           'Copia simple de la escritura de la propiedad a rentar, donde se vea el número de registro público y libertad de gravamen de la propiedad',
-          'Comprobante de domicilio de la propiedad a rentar Comprobante de domicilio personal',
+          'Comprobante de domicilio de la propiedad a rentar',
+          'Comprobante de domicilio personal',
           'Llenar solicitud de otorgamiento',
         ],
       },

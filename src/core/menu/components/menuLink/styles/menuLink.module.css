@@ -64,7 +64,7 @@ li {
 
 @media (min-width: 992px) {
   .navLink {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     letter-spacing: 0.1rem;
   }
 }
