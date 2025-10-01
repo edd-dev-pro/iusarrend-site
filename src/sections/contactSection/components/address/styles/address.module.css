@@ -6,9 +6,9 @@
   background-color: var(--color-primary);
 }
 .titleSection {
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-primary);
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
   margin-bottom: 1rem;
   letter-spacing: 0.1rem;
   font-size: 2rem;
@@ -35,6 +35,10 @@
 }
 .lineBorder {
   border-top: none;
+}
+.map {
+  height: 250px;
+  box-shadow: 0 0 20px -10px rgba(04, 0, 0, 1);
 }
 
 @media (min-width: 992px) {
