@@ -97,7 +97,7 @@ const Address = () => {
               className={clsx('mb-3', styles.logo)}
             />
             <p className={clsx(styles.textSectionSmall)}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Blindamos tu renta, cuidamos tu futuro
             </p>
             <div className="mt-5">
               <SocialIcons />

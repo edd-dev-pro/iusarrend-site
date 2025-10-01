@@ -29,7 +29,7 @@ const Banner = () => {
           <Col xs={10} md={8} className="align-content-center">
             <h1 className={styles.title}>Renta Segura</h1>
             <p className={clsx('text-light', styles.subTitle)}>
-              Lorem ipsum dolor sit amet
+              Blindamos tu renta, cuidamos tu futuro
             </p>
             <button
               type="button"
