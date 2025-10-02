@@ -85,7 +85,7 @@ const WhoAreWe = () => {
           <Col xs={12} md={6}>
             <div>
               <img
-                src="./src/assets/fachada-iusarrend.png"
+                src="/assets/fachada-iusarrend.png"
                 alt="fachada-iusarrend"
                 className={styles.img}
               />
