@@ -92,7 +92,7 @@ const Address = () => {
         >
           <Col xs={12} md={3}>
             <img
-              src="./src/assets/logo-iusarrend.png"
+              src="/assets/logo-iusarrend.png"
               alt=""
               className={clsx('mb-3', styles.logo)}
             />
@@ -103,35 +103,6 @@ const Address = () => {
               <SocialIcons />
             </div>
           </Col>
-          {/* <Col xs={12} md={3}>
-            <h6>
-              <FaPhoneAlt className="me-2" />
-              Contáctanos
-            </h6>
-            <p className={clsx('ms-4', styles.textSection)}>
-              Para más información, dudas, aclaraciones o cualquier situación
-              legal relacionada con arrendamientos, estamos a tu disposición en
-              los siguientes números:
-            </p>
-            <h6 className="ms-4">Consultor IUSARREND</h6>
-            <p className={clsx('ms-4', styles.textSection)}>56 3738 4304</p>
-            <h6 className="ms-4">Oficina Matriz</h6>
-            <p className={clsx('ms-4', styles.textSection)}>
-              55 5254 2235 Ext. 808
-            </p>
-            <h6 className="ms-4">Asesoría Jurídica IUSARREND</h6>
-            <p className={clsx('ms-4', styles.textSection)}>55 1681 1973</p>
-          </Col>
-          <Col xs={12} md={3}>
-            <h6>
-              <GiPositionMarker className="me-2" />
-              Dirección
-            </h6>
-            <p className={clsx('ms-4', styles.textSection)}>
-              Avenida Homero 229, Quinto piso oficina 501, Colonia Polanco V
-              Sección, Alcaldía Miguel Hidalgo, C.P. 11560
-            </p>
-          </Col> */}
         </Row>
       </Container>
     </div>
