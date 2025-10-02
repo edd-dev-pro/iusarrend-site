@@ -40,7 +40,7 @@ const Header: FC<HeaderProps> = ({ activeId, sectionIds }) => {
       {/* logo fijo */}
       <div className={styles.boxLogo}>
         <img
-          src="/src/assets/logo-iusarrend.png"
+          src="/assets/logo-iusarrend.png"
           alt="IUSARREND"
           className={styles.logo}
         />
@@ -52,7 +52,7 @@ const Header: FC<HeaderProps> = ({ activeId, sectionIds }) => {
           {/* logo mobile */}
           <Menu.Header className="d-lg-none">
             <img
-              src="/src/assets/shield.png"
+              src="/assets/shield.png"
               alt="IUSARREND"
               className={styles.logo}
             />
@@ -68,7 +68,7 @@ const Header: FC<HeaderProps> = ({ activeId, sectionIds }) => {
                   {idx === middle && (
                     <Menu.Header className="d-none d-lg-flex">
                       <img
-                        src="/src/assets/shield.png"
+                        src="/assets/shield.png"
                         alt="IUSARREND"
                         className={styles.logo}
                       />
