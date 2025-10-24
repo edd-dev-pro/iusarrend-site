@@ -53,3 +53,35 @@
 .dotActive {
   background: var(--color-accent);
 }
+
+/* === Fix móvil: alto de carrusel y medios llenan cada slide === */
+
+/* El wrapper ocupa el viewport móvil real */
+.carouselContainer {
+  height: 100svh; /* viewport dinámico en móviles modernos */
+  min-height: 100vh; /* fallback */
+}
+
+/* Toda la cadena hereda el alto */
+.embla,
+.embla__viewport,
+.embla__container,
+.embla__slide {
+  height: 100%;
+}
+
+/* Un slide por “pantalla” */
+.embla__slide {
+  flex: 0 0 100%;
+}
+
+/* Medios (img y video) llenan el slide sin deformar */
+.embla__img,
+.embla__media,
+.embla__slide img,
+.embla__slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
