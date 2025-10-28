@@ -1,4 +1,3 @@
-// src/components/ImageCarousel.tsx
 import {
   type FC,
   useCallback,
@@ -12,18 +11,13 @@ import clsx from 'clsx'
 import styles from './styles/imageCarousel.module.css'
 
 interface ImageCarouselProps {
-  /** Imágenes del carrusel (después del video) */
   images: string[]
-  /** Intervalo entre slides (ms). Default: 4000 */
   interval?: number
-  /** (Opcional) Video inicial como primer slide */
   videoSrc?: string
-  /** (Opcional) Duración del video en ms para fallback. Default: 5000 */
   videoDurationMs?: number
-  /** (Opcional) Silenciar video (recomendado para autoplay móvil). Default: true */
   muted?: boolean
-  /** (Opcional) Imagen poster para evitar “pantalla negra” en el primer frame */
   poster?: string
+  videoLoop?: boolean
 }
 
 const ImageCarousel: FC<ImageCarouselProps> = ({
@@ -33,17 +27,17 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
   videoDurationMs = 5000,
   muted = true,
   poster,
+  videoLoop = false,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedIndex, setSelectedIndex] = useState(0)
-
-  // Bloqueo temporal mientras corre el video inicial
   const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(!!videoSrc)
 
-  // Timer para autoplay
+  // --- Control de timers/flags para evitar dobles disparos ---
   const autoplayTimerRef = useRef<number | null>(null)
+  const fallbackTimeoutRef = useRef<number | null>(null)
+  const hasAdvancedFromVideoRef = useRef<boolean>(false)
 
-  // Mantener índice seleccionado para los dots
   const onSelect = useCallback(() => {
     if (!emblaApi) return
     setSelectedIndex(emblaApi.selectedScrollSnap())
@@ -58,52 +52,85 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
     }
   }, [emblaApi, onSelect])
 
-  // Autoplay condicionado: no iniciar mientras el video esté activo
+  // Autoplay condicionado: no iniciar mientras el video esté activo (salvo videoLoop)
   useEffect(() => {
     if (!emblaApi) return
 
-    if (autoplayTimerRef.current) {
+    if (autoplayTimerRef.current !== null) {
       window.clearInterval(autoplayTimerRef.current)
       autoplayTimerRef.current = null
     }
 
-    if (!isVideoPlaying && interval > 0) {
+    if ((videoLoop || !isVideoPlaying) && interval > 0) {
       autoplayTimerRef.current = window.setInterval(() => {
         emblaApi.scrollNext()
       }, interval) as unknown as number
     }
 
     return () => {
-      if (autoplayTimerRef.current) {
+      if (autoplayTimerRef.current !== null) {
         window.clearInterval(autoplayTimerRef.current)
         autoplayTimerRef.current = null
       }
     }
-  }, [emblaApi, interval, isVideoPlaying])
+  }, [emblaApi, interval, isVideoPlaying, videoLoop])
 
-  // Al terminar el video: desbloquear y avanzar
-  const handleVideoEnded = useCallback(() => {
+  // Avance único al terminar el video (o por fallback)
+  const advanceAfterVideoOnce = useCallback(() => {
+    if (videoLoop) return // En loop no bloqueamos ni forzamos avance
+
+    // Si ya avanzamos una vez, no repetir
+    if (hasAdvancedFromVideoRef.current) return
+    hasAdvancedFromVideoRef.current = true
+
+    // Limpiar fallback si estuviera armado
+    if (fallbackTimeoutRef.current !== null) {
+      window.clearTimeout(fallbackTimeoutRef.current)
+      fallbackTimeoutRef.current = null
+    }
+
     setIsVideoPlaying(false)
-    // pequeño delay para asegurar re-render
+    // Pequeño delay para permitir reactivación de autoplay antes del scroll
     window.setTimeout(() => emblaApi?.scrollNext(), 50)
-  }, [emblaApi])
+  }, [emblaApi, videoLoop])
+
+  // Handler de 'ended' del video
+  const handleVideoEnded = useCallback(() => {
+    advanceAfterVideoOnce()
+  }, [advanceAfterVideoOnce])
 
   // Fallback por tiempo si por algún motivo no dispara 'ended'
   useEffect(() => {
-    if (!videoSrc || !isVideoPlaying) return
-    const id = window.setTimeout(
-      () => {
-        handleVideoEnded()
-      },
-      Math.max(1000, videoDurationMs),
-    )
-    return () => window.clearTimeout(id)
-  }, [videoSrc, isVideoPlaying, videoDurationMs, handleVideoEnded])
+    if (!videoSrc || !isVideoPlaying || videoLoop) return
 
-  // Deshabilitar interacción mientras corre el video
-  const interactionBlocker = isVideoPlaying
-    ? { pointerEvents: 'none' as const }
-    : undefined
+    // Reiniciar flag en cada reproducción inicial
+    hasAdvancedFromVideoRef.current = false
+
+    const ms = Math.max(1000, videoDurationMs)
+    const id = window.setTimeout(() => {
+      advanceAfterVideoOnce()
+    }, ms)
+    fallbackTimeoutRef.current = id as unknown as number
+
+    return () => {
+      if (fallbackTimeoutRef.current !== null) {
+        window.clearTimeout(fallbackTimeoutRef.current)
+        fallbackTimeoutRef.current = null
+      }
+    }
+  }, [
+    videoSrc,
+    isVideoPlaying,
+    videoDurationMs,
+    advanceAfterVideoOnce,
+    videoLoop,
+  ])
+
+  // Deshabilitar interacción mientras corre el video (si no está en loop)
+  const interactionBlocker =
+    isVideoPlaying && !videoLoop
+      ? { pointerEvents: 'none' as const }
+      : undefined
 
   // Construcción de slides: primero el video (si existe), luego imágenes
   const slides: ReactNode[] = []
@@ -112,11 +139,12 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
       <div className={styles.embla__slide} key="__video">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
-          className={styles.embla__img} // usa la misma clase que las imágenes
+          className={styles.embla__img} // misma clase que las imágenes
           src={videoSrc}
           autoPlay
           playsInline
           muted={muted}
+          loop={videoLoop}
           preload="metadata"
           onEnded={handleVideoEnded}
           aria-hidden="true"
@@ -157,7 +185,7 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
                 selectedIndex === idx && styles.dotActive,
               )}
               onClick={() => {
-                if (isVideoPlaying) return
+                if (isVideoPlaying && !videoLoop) return
                 emblaApi?.scrollTo(idx)
               }}
               aria-label={`Ir al slide ${idx + 1}`}

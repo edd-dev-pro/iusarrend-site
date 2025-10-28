@@ -16,9 +16,10 @@ const Banner = () => {
     <div className="position-relative">
       <ImageCarousel
         images={IMGS}
-        interval={8000}
+        interval={5000}
         videoSrc="/assets/video/video-iusarren-intro.mp4"
         videoDurationMs={8000}
+        videoLoop={true}
       />
       <Container className="position-relative">
         <Row className={styles.banner}>
