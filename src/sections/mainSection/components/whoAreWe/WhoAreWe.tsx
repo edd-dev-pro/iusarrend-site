@@ -1,14 +1,84 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState, type FC } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { FaVolumeMute, FaVolumeUp, FaExpand, FaCompress } from 'react-icons/fa'
 import clsx from 'clsx'
 import video from '/assets/video/video-iusarren.mp4'
 import styles from './styles/whoAreWe.module.css'
 
-const WhoAreWe = () => {
+type IOSPresentationMode = 'fullscreen' | 'picture-in-picture' | 'inline'
+
+interface WebKitHTMLVideoElement extends HTMLVideoElement {
+  webkitEnterFullscreen?: () => void
+  webkitSetPresentationMode?: (mode: IOSPresentationMode) => void
+  webkitPresentationMode?: IOSPresentationMode
+}
+
+const isWebKitVideo = (el: HTMLVideoElement): el is WebKitHTMLVideoElement =>
+  'webkitEnterFullscreen' in el || 'webkitSetPresentationMode' in el
+
+const WhoAreWe: FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const [isMuted, setIsMuted] = useState(true)
   const [isFullscreen, setIsFullscreen] = useState(false)
+
+  const enterFullscreen = () => {
+    const v = videoRef.current
+    if (!v) return
+
+    // iOS 16+: presentation mode
+    if (isWebKitVideo(v) && typeof v.webkitSetPresentationMode === 'function') {
+      v.webkitSetPresentationMode('fullscreen')
+      setIsFullscreen(true)
+      return
+    }
+    // iOS clásico
+    if (isWebKitVideo(v) && typeof v.webkitEnterFullscreen === 'function') {
+      v.webkitEnterFullscreen()
+      setIsFullscreen(true)
+      return
+    }
+    // Estándar (Android/desktop)
+    if (document.fullscreenEnabled && v.requestFullscreen) {
+      v.requestFullscreen()
+      setIsFullscreen(true)
+    }
+  }
+
+  const exitFullscreen = () => {
+    const v = videoRef.current
+    if (!v) return
+
+    // iOS 16+: volver a inline
+    if (isWebKitVideo(v) && typeof v.webkitSetPresentationMode === 'function') {
+      v.webkitSetPresentationMode('inline')
+      setIsFullscreen(false)
+      return
+    }
+    // Estándar
+    if (document.fullscreenElement) {
+      document.exitFullscreen()
+    }
+    setIsFullscreen(false)
+  }
+
+  const toggleFullscreen = () => {
+    const v = videoRef.current
+    if (!v) return
+
+    // iOS: si existe presentationMode, úsalo para decidir
+    if (isWebKitVideo(v) && typeof v.webkitPresentationMode === 'string') {
+      if (v.webkitPresentationMode === 'fullscreen') {
+        exitFullscreen()
+      } else {
+        enterFullscreen()
+      }
+      return
+    }
+
+    // Estándar
+    if (!document.fullscreenElement) enterFullscreen()
+    else exitFullscreen()
+  }
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -17,15 +87,35 @@ const WhoAreWe = () => {
     }
   }
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      videoRef.current?.requestFullscreen()
-      setIsFullscreen(true)
-    } else {
-      document.exitFullscreen()
-      setIsFullscreen(false)
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+
+    const syncState = () => {
+      const iosFs =
+        isWebKitVideo(v) && v.webkitPresentationMode === 'fullscreen'
+      const stdFs = !!document.fullscreenElement
+      setIsFullscreen(iosFs || stdFs)
     }
-  }
+
+    document.addEventListener('fullscreenchange', syncState)
+    if (isWebKitVideo(v)) {
+      v.addEventListener(
+        'webkitpresentationmodechanged',
+        syncState as EventListener,
+      )
+    }
+
+    return () => {
+      document.removeEventListener('fullscreenchange', syncState)
+      if (isWebKitVideo(v)) {
+        v.removeEventListener(
+          'webkitpresentationmodechanged',
+          syncState as EventListener,
+        )
+      }
+    }
+  }, [])
 
   return (
     <div>
@@ -38,7 +128,7 @@ const WhoAreWe = () => {
                 className={styles.heroVideo}
                 src={video}
                 autoPlay
-                muted
+                muted={isMuted}
                 loop
                 playsInline
                 preload="metadata"
@@ -46,8 +136,16 @@ const WhoAreWe = () => {
                 controls={false}
                 controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
                 disablePictureInPicture
-                aria-label="Video de presentación de IUSARREND"
-              />
+                aria-hidden="true"
+                tabIndex={-1}
+              >
+                <track
+                  kind="captions"
+                  src="data:text/vtt,WEBVTT%0A"
+                  srcLang="es"
+                  label="Oculto"
+                />
+              </video>
 
               {/* Botón de sonido */}
               <button

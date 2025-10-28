@@ -16,7 +16,7 @@ const Banner = () => {
     <div className="position-relative">
       <ImageCarousel
         images={IMGS}
-        // interval={5000}
+        interval={8000}
         videoSrc="/assets/video/video-iusarren-intro.mp4"
         videoDurationMs={8000}
       />
