@@ -14,8 +14,8 @@ const Benefits = () => {
             <div className={styles.card}>
               <ul className={clsx('mb-0', styles.textSection)}>
                 <li className="text-start">
-                  Contamos con 25 años de experiencia en procesos de
-                  arrendamiento.
+                  El despacho jurídico que nos respalda cuenta con más de 20
+                  años de experiencia en procesos de arrendamiento.
                 </li>
                 <li className="text-start">
                   Somos una póliza accesible dentro del mercado.
